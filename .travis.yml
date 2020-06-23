@@ -1,0 +1,23 @@
+sudo: required
+
+services:
+    - docker
+
+before_install:
+    - docker build -t app . && docker run -it --init -p 8080:8080 app
+
+script:
+    - docker run fhsinchy/deno-blog test --allow-env tests/version.test.ts
+
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "agnus-api"
+    env: "AgnusApi-env"
+    bucket_name:
+    bucket_path: "agnus-api"
+    access_key_id:
+    secret_access_key:
+    on:
+        branch: master

@@ -9,4 +9,4 @@ run:
 
 	heroku apps:lit-hamlet-48026 agnusapi
 
-	heroku run deno -L=debug run --allow-net --cached-only --allow-env --allow-write --allow-read --allow-plugin --unstable server.ts --port=${8080} --app agnusapi
+	heroku run deno -L=debug  --allow-net  --allow-env --allow-write --allow-read --allow-plugin --unstable main.ts --port=5000 --app agnusapi
