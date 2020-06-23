@@ -1,4 +1,4 @@
-# AgnusCrm.Api [![Build Status](https://travis-ci.com/Aguns/AgnusCrm.Api.svg?branch=master)](https://travis-ci.com/Aguns/AgnusCrm.Api)
+# AgnusCrm.Api [![Build Status](https://travis-ci.org/Aguns/AgnusCrm.Api.svg?branch=master)](https://travis-ci.org/github/Aguns/AgnusCrm.Api)
 
 This is an experimental blogging API developed with [Docker](https://www.docker.com/get-started), [Deno](https://deno.land/), [ABC](https://github.com/zhmushan/abc/blob/master/README.md) and [MySQL](https://www.mysql.com/).
 
