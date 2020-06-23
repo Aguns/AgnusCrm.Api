@@ -1,6 +1,6 @@
 FROM hayd/alpine-deno:latest
 
-EXPOSE 4000  
+EXPOSE 3000  
 #The port that your application listens to.
 
 WORKDIR /app
