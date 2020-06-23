@@ -11,7 +11,7 @@ script:
  
 deploy:
     provider: elasticbeanstalk
-    region: "us-east-2"
+    region: "us-west-2"
     app: "agnus-api"
     env: "AgnusApi-env"
     bucket_name: "elasticbeanstalk-us-west-2-281401968496"
