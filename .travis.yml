@@ -4,12 +4,11 @@ services:
     - docker
 
 before_install:
-    - docker build -t Aguns/AgnusCrm.Api .
+    - docker build -t app .
 
 script:
-    - docker run Aguns/AgnusCrm.Api test --allow-env tests/version.test.ts
-
-
+    - docker run app test --allow-env tests/version.test.ts
+ 
 deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
