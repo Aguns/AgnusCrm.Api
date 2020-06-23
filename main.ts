@@ -57,3 +57,5 @@ app
 
 
 app.start({ hostname: HOST, port: PORT });
+
+console.log(`Listem to ${HOST}:${PORT}`);
