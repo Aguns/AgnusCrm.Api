@@ -15,9 +15,9 @@ deploy:
     region: "us-east-2"
     app: "agnus-api"
     env: "AgnusApi-env"
-    bucket_name:
+    bucket_name: "elasticbeanstalk-us-west-2-281401968496"
     bucket_path: "agnus-api"
-    access_key_id:
-    secret_access_key:
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: "$AWS_SECRET_ACCESS_KEY"
     on:
         branch: master
