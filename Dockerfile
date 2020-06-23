@@ -1,6 +1,6 @@
-FROM hayd/alpine-deno:1.1.1
+FROM hayd/alpine-deno:latest
 
-#EXPOSE 5000  
+EXPOSE 3000  
 #The port that your application listens to.
 
 WORKDIR /app
@@ -10,12 +10,11 @@ USER deno
 
 # Cache the dependencies as a layer (the following two steps are re-run only when deps.ts is modified).
 # Ideally cache deps.ts will download and compile _all_ external files used in main.ts.
-COPY deps.ts .
+COPY ./deps.ts .
 RUN deno cache deps.ts
 
 # These steps will be re-run upon each file change in your working directory:
-ADD . .
-# Compile the main app so that it doesn't need to be compiled each startup/entry.
-RUN deno cache main.ts
+COPY . .
+
 # These are passed as deno arguments when run with docker:
-CMD ["run","--allow-read" ,"--allow-write","--allow-net", "main.ts","--allow-env"]
+CMD ["run", "--unstable","--allow-read" ,"--allow-write","--allow-net", "--allow-env","bin/server.ts"]

@@ -1,6 +1,5 @@
 
 import {  Application,Context } from "./deps.ts";
-import "https://deno.land/x/dotenv/mod.ts";
 
 import { 
     get_all_books,
@@ -25,9 +24,6 @@ import {
 
 const app = new Application();
 
-const env = Deno.env.toObject()
-const PORT = Number(env.PORT || 5000)
-const HOST = env.HOST || '127.0.0.1'
 
 
 
@@ -56,6 +52,6 @@ app
     .delete('/entities/:id',delete_entity)
 
 
-app.start({ hostname: HOST, port: PORT });
 
-console.log(`Listem to ${HOST}:${PORT}`);
+
+export default app;
