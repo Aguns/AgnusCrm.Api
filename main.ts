@@ -1,4 +1,7 @@
-import { Application,Context } from "https://deno.land/x/abc@v1.0.0-rc10/mod.ts";
+
+import {  Application,Context } from "./deps.ts";
+import "https://deno.land/x/dotenv/mod.ts";
+
 import { 
     get_all_books,
     get_book,
@@ -21,6 +24,12 @@ import {
 } from './controllers/base/entityController.ts'
 
 const app = new Application();
+
+const env = Deno.env.toObject()
+const PORT = Number(env.PORT || 5000)
+const HOST = env.HOST || '127.0.0.1'
+
+
 
 app.static('/','./public');
 
@@ -47,6 +56,4 @@ app
     .delete('/entities/:id',delete_entity)
 
 
-app.start({ port: 5000 });
-
-console.log("Server Is - http:\\localhost:5000");
+app.start({ hostname: HOST, port: PORT });
