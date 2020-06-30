@@ -16,7 +16,7 @@ services:
         volumes: 
             - ./:/usr/app
         ports: 
-            - 4000:4000
+            - 3000:3000
         environment: 
             - DB_HOST=db # this should be identical to the database service name
             - DB_USER=root
