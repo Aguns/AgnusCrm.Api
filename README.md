@@ -5,7 +5,7 @@ This is an experimental blogging API developed with [Docker](https://www.docker.
 
 ## Development Task List
 
-- [*] Deploy to Heroku
+- Deploy to Heroku :heavy_check_mark:
 - [ ] Dockerization 
 - [ ] Contact 
 - [ ] Authentication 
