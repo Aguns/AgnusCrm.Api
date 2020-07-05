@@ -1,10 +1,11 @@
 # AgnusCrm.Api [![Build Status](https://travis-ci.org/Aguns/AgnusCrm.Api.svg?branch=master)](https://travis-ci.org/github/Aguns/AgnusCrm.Api)
 
-This is an experimental blogging API developed with [Docker](https://www.docker.com/get-started), [Deno](https://deno.land/), [ABC](https://github.com/zhmushan/abc/blob/master/README.md) and [MySQL](https://www.mysql.com/).
+This is an experimental blogging API developed with [Docker](https://www.docker.com/get-started),[Heroku](https://devcenter.heroku.com/), [Deno](https://deno.land/), [ABC](https://github.com/zhmushan/abc/blob/master/README.md) and [MySQL](https://www.mysql.com/).
 
 
 ## Development Task List
 
+- [*] Deploy to Heroku
 - [ ] Dockerization 
 - [ ] Contact 
 - [ ] Authentication 
@@ -16,6 +17,7 @@ This is an experimental blogging API developed with [Docker](https://www.docker.
 
 - [Deno 1.0+](https://deno.land/)
 - [Docker](https://www.docker.com/get-started)
+- [Heroku](http://heroku.com)
 
 ## Libraries Used
 
