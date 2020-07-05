@@ -11,8 +11,5 @@ script:
  
 deploy:
     provider: heroku
-    api_key:
-        secure: $HEROKU_AUTH_TOKEN
+    api_key: $HEROKU_AUTH_TOKEN
     app: agnusapi
-    on:
-        branch: master
