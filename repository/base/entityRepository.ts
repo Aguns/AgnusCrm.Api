@@ -1,0 +1,58 @@
+import { Entity } from "../../models/base/entityModel.ts";
+
+let entities: Entity[] = [
+    {
+      id: "1",
+      name: "",
+      desc: "",
+      Contact: [{
+        id: "2",
+        city: "Maputo",
+        address: "",
+        zone: "",
+        district: "",
+        mobile: "+258849535156",
+        telphone: "",
+        otherContact: "",
+        email: "",
+        other: "",
+        createdby: "gmahota",
+        source: "Email",
+      }],
+      author: "gmahota",
+      createdAt: new Date(),
+      avatar: "",
+      status: "",
+      email: "",
+      other: "",
+      createdby: "gmahota",
+    },
+    {
+      id: "2",
+      name: "",
+      desc: "",
+      Contact: [],
+      author: "gmahota",
+      createdAt: new Date(),
+      avatar: "",
+      status: "",
+      email: "",
+      other: "",
+      createdby: "gmahota",
+    },
+    {
+      id: "3",
+      name: "",
+      desc: "",
+      Contact: [],
+      author: "gmahota",
+      createdAt: new Date(),
+      avatar: "",
+      status: "",
+      email: "",
+      other: "",
+      createdby: "gmahota",
+    },
+  ];
+
+  export { entities }
