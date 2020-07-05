@@ -10,13 +10,8 @@ script:
     - docker run app test --allow-env tests/version.test.ts
  
 deploy:
-    provider: elasticbeanstalk
-    region: "us-west-2"
-    app: "agnusapi"
-    env: "Agnusapi-env"
-    bucket_name: "elasticbeanstalk-us-west-2-281401968496"
-    bucket_path: "agnusapi"
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: "$AWS_SECRET_ACCESS_KEY"
+    provider: heroku
+    api_key:
+        secure: "$HEROKU_ACCESS_KEY_ID"
     on:
         branch: master
