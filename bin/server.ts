@@ -14,4 +14,4 @@ const port = argPort ? Number(argPort) : DEFAULT_PORT;
 
 app.start({ port: port });
 
-console.log(`app running -> localhost:${PORT}`);
+console.log(`app running -> localhost:${port}`);
