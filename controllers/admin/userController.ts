@@ -19,7 +19,7 @@ export const get_user = (ctx: Context) => {
 
 export const create_user = async (ctx: Context) => {
   const {
-    userName,
+    username,
     name,
     firstName,
     lastName,
@@ -35,7 +35,7 @@ export const create_user = async (ctx: Context) => {
   const id = v4.generate();
   const user = {
     id,
-    userName,
+    username,
     name,
     firstName,
     lastName,

@@ -3,20 +3,20 @@ import { User } from "../../models/admin/userModel.ts";
 let users: User[] = [
     {
         id:"899d0e31-b71e-4d95-a8a0-6a8bceb314bd",
-        userName:"gmahota",
+        username:"gmahota",
         name:"Guimaraes Mahota",
         firstName:"",
         lastName:"",
         email:"guimaraesmahota@gmail.com",
         phoneNumber:"",
-        password :"",
+        password :"1234567890",
         confirmPassword:false,
         inactive:false,
         country: ""
     },
     {
         id:"6124d4e8-77ed-4b34-868d-d312bfab5de2",
-        userName:"bmahota",
+        username:"bmahota",
         name:"",
         firstName:"",
         lastName:"",
@@ -29,7 +29,7 @@ let users: User[] = [
     },
     {
         id:"eef93cb1-7766-4413-a5cf-ecbf71fa3674",
-        userName:"cmahota",
+        username:"cmahota",
         name:"",
         firstName:"",
         lastName:"",

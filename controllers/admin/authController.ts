@@ -1,0 +1,57 @@
+import { Context } from "https://deno.land/x/abc@v1.0.0-rc10/mod.ts";
+import { v4 } from "https://deno.land/std/uuid/mod.ts";
+import { User } from "../../models/admin/userModel.ts";
+import { users } from "../../repository/admin/userRepository.ts";
+import {
+  makeJwt,
+  setExpiration,
+  Jose,
+  Payload,
+} from "https://deno.land/x/djwt/create.ts";
+import key from "../../key.ts";
+
+const header: Jose = {
+  alg: "HS256",
+  typ: "JWT",
+};
+
+export const login = async (ctx: Context) => {
+  
+  const {
+    username,
+    password 
+  } = await ctx.body();
+
+  for (const user of users) {
+    if (username === user.username && password === user.password) {
+      const payload: Payload = {
+        iss: user.username,
+        exp: setExpiration(new Date().getTime() + 60000),
+      };
+
+      // Create JWT and send it to user
+      const jwt = makeJwt({ key, header, payload });
+      if (jwt) {
+        return ctx.json({
+          id: user.id,
+          username: user.username,
+          jwt
+        }, 200);
+        
+      } else {
+        return ctx.string("Internal server error", 500);
+      }
+      
+    }
+  }
+
+  return ctx.string("Invalid username or password", 422);
+};
+
+export const guest = (ctx: Context) => {
+  return ctx.json('Guest success', 200);
+};
+
+export const auth = (ctx: Context) => {
+  return ctx.json('Auth success', 200);
+}

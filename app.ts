@@ -1,4 +1,7 @@
 
-import routes from "./routes/routes.ts"
+import app from "./routes/routes.ts"
+import { cors } from "./deps.ts";
 
-export default routes;
+app.use(cors());
+
+export default app;
