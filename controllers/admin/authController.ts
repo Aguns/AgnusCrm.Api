@@ -34,8 +34,10 @@ export const login = async (ctx: Context) => {
       if (jwt) {
         return ctx.json({
           id: user.id,
-          username: user.username,
-          jwt
+          userName: user.username,
+          userEmail:user.email,
+          token:jwt,
+          expiresIn:payload.exp
         }, 200);
         
       } else {
