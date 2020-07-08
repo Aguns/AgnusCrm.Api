@@ -37,7 +37,7 @@ export const login = async (ctx: Context) => {
           userName: user.username,
           userEmail:user.email,
           token:jwt,
-          expiresIn:payload.exp
+          expiresIn:new Date(new Date().getTime() + 60000)
         }, 200);
         
       } else {
