@@ -6,6 +6,7 @@ This is an experimental blogging API developed with [Docker](https://www.docker.
 ## Development Task List
 
 - Deploy to Heroku :heavy_check_mark:
+- [ ] GraphQL Server 
 - [ ] Dockerization 
 - [ ] Contact 
 - [ ] Authentication 
