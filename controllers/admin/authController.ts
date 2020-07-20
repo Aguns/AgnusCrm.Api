@@ -23,10 +23,11 @@ export const login = async (ctx: Context) => {
   } = await ctx.body();
 
   for (const user of users) {
+    var days = 1;
     if (username === user.username && password === user.password) {
       const payload: Payload = {
         iss: user.username,
-        exp: setExpiration(new Date().getTime() + 60000),
+        exp: setExpiration(new Date().getTime() + (days * 24*60*60*1000)),
       };
 
       // Create JWT and send it to user
@@ -37,7 +38,7 @@ export const login = async (ctx: Context) => {
           userName: user.username,
           userEmail:user.email,
           token:jwt,
-          expiresIn:new Date(new Date().getTime() + 60000)
+          expiresIn:new Date(new Date().getTime() + (days * 24*60*60*1000))
         }, 200);
         
       } else {
