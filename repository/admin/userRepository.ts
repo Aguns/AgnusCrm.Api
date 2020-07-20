@@ -9,7 +9,7 @@ let users: User[] = [
         lastName:"",
         email:"guimaraesmahota@gmail.com",
         phoneNumber:"",
-        password :"1234567890",
+        password :"123456",
         confirmPassword:false,
         inactive:false,
         country: ""
@@ -22,7 +22,7 @@ let users: User[] = [
         lastName:"",
         email:"Belmiromahota@gmail.com",
         phoneNumber:"",
-        password :"",
+        password :"123456",
         confirmPassword:false,
         inactive:false,
         country: ""
