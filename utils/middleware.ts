@@ -25,7 +25,7 @@ export const authMiddleware: MiddlewareFunc = (next) =>
       }
       const validated = await validateJwt(jwt, key );
       if(validated.isValid === true ){
-        await next(ctx)
+        next(ctx)
       }else{
         throw new ErrorHandler("Invalid jwt token", 401);
       }
@@ -35,8 +35,8 @@ export const authMiddleware: MiddlewareFunc = (next) =>
       
     } catch (err) {
       const error = err as ErrorHandler;
-      ctx.response.status = error.status || 500;
-      ctx.response.body = error.message;
+      //ctx.response.status = error.status || 500;
+      //ctx.response.body = error.message;
     }
   };
 
