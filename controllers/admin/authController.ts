@@ -26,7 +26,7 @@ export const login = async (ctx: Context) => {
     if (username === user.username && password === user.password) {
       const payload: Payload = {
         iss: user.username,
-        exp: setExpiration(new Date().getTime() + (days * 24*60*60*1000)),
+        exp: setExpiration(new Date().getTime() + (days *24*60*60*1000)),
       };
 
       // Create JWT and send it to user

@@ -24,7 +24,7 @@ export const authMiddleware: MiddlewareFunc = (next) =>
       if (!jwt) {
         throw new ErrorHandler("", 401);
       }
-      if (await (await validateJwt(jwt, key)).isValid) {
+      if ((await validateJwt(jwt, key)).isValid) {
         await next(ctx);
       }
 
