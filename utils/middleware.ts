@@ -1,4 +1,4 @@
-import { MiddlewareFunc, Context,validateJwt } from "../deps.ts";
+import { MiddlewareFunc, Context,validateJwt,JwtValidation } from "../deps.ts";
 import key from "../key.ts";
 
 export class ErrorHandler extends Error {
@@ -19,19 +19,16 @@ export const authMiddleware: MiddlewareFunc = (next) =>
       if (!authorization) {
         throw new ErrorHandler("", 401);
       }
-      const jwt =  authorization.split(" ")[1];
+      let jwt =  authorization.split(" ")[1];
       if (!jwt) {
         throw new ErrorHandler("", 401);
       }
-      //const validated = await validateJwt(jwt, key );
-      //if(validated.isValid === true ){
+      const validated = await validateJwt({jwt, key,algorithm: "HS256"} );
+      if(validated.isValid === true ){
         await next(ctx)
-      //}else{
-      //  throw new ErrorHandler("Invalid jwt token", 401);
-      //}
-        
-      
-
+      }else{
+        throw new ErrorHandler("Invalid jwt token", 401);
+      }
       
     } catch (err) {
       const error = err as ErrorHandler;
