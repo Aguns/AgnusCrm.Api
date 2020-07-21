@@ -1,3 +1,3 @@
-const key = "some-random-secret-key";
+const key :string = "your-secret";
 
 export default key;
