@@ -1,4 +1,4 @@
-import { Context } from "https://deno.land/x/abc@v1.0.0-rc10/mod.ts";
+import { Context } from "../deps.ts";
 import { v4 } from "https://deno.land/std/uuid/mod.ts";
 import { Book } from "../models/bookModel.ts";
 

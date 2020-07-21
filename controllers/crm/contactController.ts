@@ -1,5 +1,4 @@
-import { Context } from "https://deno.land/x/abc@v1.0.0-rc10/mod.ts";
-import { v4 } from "https://deno.land/std/uuid/mod.ts";
+import { Context , v4 } from "../../deps.ts";
 import { Contact } from "../../models/crm/contactModel.ts";
 import {contacts} from "../../repository/crm/crmRepository.ts"
 

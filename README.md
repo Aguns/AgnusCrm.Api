@@ -23,7 +23,6 @@ This is an experimental blogging API developed with [Docker](https://www.docker.
 ## Libraries Used
 
 - [abc](https://deno.land/x/abc)
-- [deno_graphql](https://deno.land/x/deno_graphql)
 
 ## Project Structure
 
