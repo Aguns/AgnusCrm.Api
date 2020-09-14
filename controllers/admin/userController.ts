@@ -1,15 +1,17 @@
 import { Context, v4 } from "../../deps.ts";
 import { User } from "../../models/admin/userModel.ts";
-import { users } from "../../repository/admin/userRepository.ts"
+import { search,insert,update,remove } from "../../repository/admin/userRepository.ts"
 
 
-export const get_all_users = (ctx: Context) => {
+export const  get_all_users = async (ctx: Context) => {
+  const users = await search();
   return ctx.json(users, 200);
 };
 
-export const get_user = (ctx: Context) => {
+export  const get_user = async (ctx: Context) => {
   const { id } = ctx.params;
-  const user = users.find((b: User) => b.id === id);
+  const user = await search({id:id});
+
   if (user) {
     return ctx.json(user, 200);
   }
@@ -45,17 +47,23 @@ export const create_user = async (ctx: Context) => {
     inactive,
     country
   };
-  users.push(user);
 
-  return ctx.json(user, 201);
+  
+
+  try{
+    await insert(user);
+    return ctx.json(id, 200);
+  }catch(e){
+    return ctx.string("error to create a user with that id", 404);
+  }
 };
 
-export const delete_user = (ctx: Context) => {
+export const delete_user = async (ctx: Context) => {
   const { id } = ctx.params;
-  const user = users.find((b: User) => b.id === id);
-
-  if (user) {
-    return ctx.json(user, 200);
+  try{
+    await remove(id);
+    return ctx.json(id, 200);
+  }catch(e){
+    return ctx.string("no user with that id", 404);
   }
-  return ctx.string("no user with that id", 404);
 };

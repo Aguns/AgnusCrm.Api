@@ -1,6 +1,6 @@
 import { Context, v4 } from "../../deps.ts";
 import { User } from "../../models/admin/userModel.ts";
-import { users } from "../../repository/admin/userRepository.ts";
+import { search  } from "../../repository/admin/userRepository.ts";
 import {
   makeJwt,
   setExpiration,
@@ -8,6 +8,7 @@ import {
   Payload,
 } from "https://deno.land/x/djwt/create.ts";
 import key from "../../key.ts";
+import client from "../../db/MySqlClient.ts";
 
 const header: Jose = {
   alg: "HS256",
@@ -21,7 +22,14 @@ export const login = async (ctx: Context) => {
     password 
   } = await ctx.body();
 
-  for (const user of users) {
+  const result = await search({id:username});
+    
+  if(result){
+    const user = {
+      username:username,
+      password:password
+    }
+    
     var days = 1;
     if (username === user.username && password === user.password) {
       const payload: Payload = {
@@ -33,9 +41,7 @@ export const login = async (ctx: Context) => {
       const jwt = makeJwt({ key, header, payload });
       if (jwt) {
         return ctx.json({
-          id: user.id,
           userName: user.username,
-          userEmail:user.email,
           token:jwt,
           expiresIn:new Date(new Date().getTime() + (days * 24*60*60*1000))
         }, 200);

@@ -1,5 +1,5 @@
 run:
-	deno run --allow-read --allow-write --allow-net --allow-env bin/server.ts
+	deno run --allow-read --allow-write --allow-net --allow-env --allow-plugin --unstable bin/server.ts
 	docker build -t app . && docker run -it --init -p 4000:4000 app
 
 	##google cloud
